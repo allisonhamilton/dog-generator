@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+//Components
+import Header from './components/Header';
+import Random from './pages/generateImage';
+import ByBreed from './pages/generateImageByBreed';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <div className='container'>
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Random} />
+            <Route exact path='/by-breed' component={ByBreed} />
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }

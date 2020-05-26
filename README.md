@@ -1,68 +1,38 @@
+# Puppy Image Generator
+
+Imagine you’re new to the company and this is the first project you’ve been assigned. Due to COVID-19, morale has been down and the management team thinks it would help to have a website employees could access to help brighten their day. They’ve come up with the genius idea of allowing the employees to generate random dog and puppy pictures. A little research has shown that there is a public API that can achieve that exact goal. They’ve also found a starter template for a React project that they’ve been able to send you. Now it’s up to you to set up a proper integration between the two.
+
+The provided template was bootstrapped with create-react-app. It already includes all the required dependencies (ex: Axios for API calls). The first thing you’ll need to do on downloading and opening the project is run _npm install_. The project contains a frontend that will automatically find an available port. It can be started with _npm run start_. It also has a backend that will run on port 8001. This can be started by running _nodemon server.js_.
+
+You can find the documentation and endpoints for the Dog API at:
+**https://dog.ceo/dog-api/documentation/**
+
+The project has 3 main files that need to be completed:
+
+- ./src/pages/generateImage.js
+- ./src/pages/generateImageByBreed.js
+- ./server.js
+
+To avoid issues with CORS policies, the requests to the Dog API should be made from the backend, the responses then being passed over to the client side.
+
+## generateImage.js
+
+This page should generate a new random dog image every time the button is clicked. The button is already set to execute a function when clicked. This function should send a request to an endpoint on the server which will in turn fetch an image from the API. The server should then return the image back to the client-side function where it will be set as the source to an already existing HTML img element.
+
+The HTML img element is, by default, hidden. Make sure your function makes it visible **after** an image is set.
+
+## generateImageByBreed.js
+
+This page should generate a new random dog image of the selected breed each time a new one is chosen. The HTML select element is already set to execute a function when a new option is selected.
+
+When this page loads, the dynamic filling of the HTML select element’s options should be the very first thing to occur. A function should therefore send a request to the backend which will retrieve the list of breeds from the API.
+
+When a new option is selected, another function should send the chosen breed to the backend, which will then get a random image for that breed from the API. The image should then be sent back to the client side and populate the source of the HTML img element.
+
+The HTML img element is, by default, hidden. Make sure your function makes it visible **after** an image is set.
+
+## server.js
+
+This is where all the calls to the Dog API should take place. This file should be populated with endpoints that the frontend can access. Every endpoint needs to use the proper method (GET, POST, PATCH, etc.) and should return the proper data to the frontend. There should also be some form of error handling in the event of an incorrect request.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
